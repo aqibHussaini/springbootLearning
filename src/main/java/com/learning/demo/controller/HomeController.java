@@ -10,7 +10,7 @@ public class HomeController {
     @GetMapping("/home/{name}")
     public String Home(Model model,@PathVariable String name) {
         model.addAttribute("name",myName);
-        System.out.println(name);
+        System.out.println("name = "+name);
         return "home.html";
     }
 }
