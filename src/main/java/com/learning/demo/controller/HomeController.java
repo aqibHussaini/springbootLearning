@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class HomeController {
     @GetMapping("/home/{name}")
     public String Home(Model model,@PathVariable String name) {
-        System.out.println("name is = "+name);
         return "home.html";
     }
 }
