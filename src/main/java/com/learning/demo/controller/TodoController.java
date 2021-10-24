@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TodoController {
@@ -22,7 +23,7 @@ public class TodoController {
     {
         Pageable  pageable=PageRequest.of(page,9);
         model.addAttribute("todos",todoService.fetchAllTodos(pageable));
-        model.addAttribute("page",pageable);
+        model.addAttribute("pages",todoService.fetchAllTodos(pageable).getTotalPages());
         return "home.html";
     }
     @PostMapping("/save")
