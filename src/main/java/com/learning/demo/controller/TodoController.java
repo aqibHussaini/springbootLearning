@@ -2,6 +2,9 @@ package com.learning.demo.controller;
 
 import com.learning.demo.Entity.Todo;
 import com.learning.demo.service.todoService;
+import com.learning.demo.util.LogUtil;
+import org.apache.logging.log4j.LogManager;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +27,7 @@ public class TodoController {
         Pageable  pageable=PageRequest.of(page,9);
         model.addAttribute("todos",todoService.fetchAllTodos(pageable));
         model.addAttribute("pages",todoService.fetchAllTodos(pageable).getTotalPages());
+        LogUtil.infoLog();
         return "home.html";
     }
     @PostMapping("/save")
